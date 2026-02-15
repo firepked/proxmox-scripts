@@ -7,8 +7,8 @@
 set -e
 
 # Variables
-GITHUB_RUNNER_URL="https://github.com/actions/runner/releases/download/v2.311.0/actions-runner-linux-x64-2.311.0.tar.gz"
-TEMPL_URL="http://download.proxmox.com/images/system/ubuntu-23.04-standard_23.04-1_amd64.tar.zst"
+GITHUB_RUNNER_URL="https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-linux-x64-2.321.0.tar.gz"
+TEMPL_URL="http://download.proxmox.com/images/system/ubuntu-24.04-standard_24.04-2_amd64.tar.zst"
 PCTSIZE="20G"
 PCT_ARCH="amd64"
 PCT_CORES="4"
@@ -77,6 +77,9 @@ pct exec "$PCTID" -- bash -c "apt update -y && apt install -y git curl zip && pa
 
 # Install Docker inside the container
 log "-- Installing docker"
+# Install Node.js 20 (LTS)
+log "-- Installing Node.js 20"
+pct exec "$PCTID" -- bash -c "curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install -y nodejs"
 pct exec "$PCTID" -- bash -c "curl -qfsSL https://get.docker.com | sh"
 
 # Get runner installation token
