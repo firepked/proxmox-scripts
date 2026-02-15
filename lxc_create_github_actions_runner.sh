@@ -15,8 +15,8 @@ PCT_CORES="4"
 PCT_MEMORY="4096"
 PCT_SWAP="4096"
 PCT_STORAGE="local-lvm"
-DEFAULT_IP_ADDR="192.168.0.123/24"
-DEFAULT_GATEWAY="192.168.0.1"
+DEFAULT_IP_ADDR="172.20.20.36/24"
+DEFAULT_GATEWAY="172.20.20.2"
 
 # Ask for GitHub token and owner/repo if they're not set
 if [ -z "$GITHUB_TOKEN" ]; then
